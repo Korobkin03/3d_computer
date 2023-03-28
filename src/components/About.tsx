@@ -19,7 +19,7 @@ const About: React.FC = () => {
       <Tilt className="xs:w-[250px] w-full">
         <motion.div
           variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-          className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+          className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card "
         >
           <div
             options={{
@@ -27,10 +27,16 @@ const About: React.FC = () => {
               scale: 1,
               speed: 450,
             }}
-            className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
+            className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col "
           >
-            <img src={icon} alt={title} className="w-16 h-16 object-contain" />
-            <h3 className="text-white text-[20px] font-bold text-center">
+            <img
+              src={icon}
+              alt={title}
+              className="w-16 h-16 object-contain animate-[spin_8s_linear_infinite]"
+            />
+            <h3
+              className={`text-white text-[20px] font-bold text-center ${styles.textGradientPink}`}
+            >
               {title}
             </h3>
           </div>
@@ -43,7 +49,7 @@ const About: React.FC = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText}`}>Introduction</p>
-        <h2 className={`${styles.sectionHeadText}`}>Overview.</h2>
+        <h2 className={`${styles.sectionHeadText}`}>Overview</h2>
       </motion.div>
 
       <motion.p
