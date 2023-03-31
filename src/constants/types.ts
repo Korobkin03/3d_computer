@@ -28,6 +28,7 @@ export type TestimonialsType = {
   designation: string;
   company: string;
   image: string;
+  index: number;
 };
 
 export type TagsType = {
