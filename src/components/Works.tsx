@@ -19,14 +19,7 @@ const ProjectCard = ({
 }: ProjectsType) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
-      >
+      <Tilt className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full">
         <div className="relative w-full h-[230px]">
           <img
             src={image}
@@ -91,7 +84,7 @@ const Works: React.FC = () => {
 
       <div className="mt-20 flex flex-wrap gap-7 ">
         {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
+          <ProjectCard key={`project-${index}`} {...project} index={index} />
         ))}
       </div>
     </>

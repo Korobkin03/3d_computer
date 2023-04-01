@@ -9,8 +9,9 @@ import {
 } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import { BallType } from "../../constants/types";
 
-const Ball: React.FC = (props) => {
+const Ball: React.FC<BallType> = (props) => {
   const [decal] = useTexture([props.imgUrl]);
 
   return (
