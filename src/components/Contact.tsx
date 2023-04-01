@@ -6,10 +6,11 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import { FormType } from "../constants/types";
 
 export const Contact: React.FC = () => {
   const formRef = React.useRef<HTMLFormElement>(null);
-  const [form, setForm] = React.useState({
+  const [form, setForm] = React.useState<FormType>({
     name: "",
     email: "",
     message: "",
@@ -25,7 +26,43 @@ export const Contact: React.FC = () => {
       [name]: value,
     });
   };
-  const handleSubmit = (e: any) => {};
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+
+    //information from emailjs
+
+    emailjs
+      .send(
+        "service_qazwsxe",
+        "template_qazwsxe",
+        {
+          form_name: form.name,
+          to_name: "Maxim",
+          from_email: form.email,
+          to_email: "contact@maximJSDevelover",
+          message: form.message,
+        },
+        "Jqq9hjdfgndfgrt"
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank you. I will get back to you as soon as possible");
+
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.log(error);
+          alert("Something went wrong");
+        }
+      );
+  };
 
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">

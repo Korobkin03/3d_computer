@@ -44,3 +44,14 @@ export type ProjectsType = {
   source_code_link: string;
   index: number;
 };
+export type FormType = {
+  name: string;
+  email: string;
+  message: string;
+};
+export type StarsRefType = {
+  rotation: {
+    x: number;
+    y: number;
+  };
+};
